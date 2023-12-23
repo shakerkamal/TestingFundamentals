@@ -1,13 +1,13 @@
-﻿namespace TestingFundamentals.UnitTests;
+﻿namespace TestingFundamentals.UnitTests.Fundamentals;
 
 [TestFixture]
 public class StackTests
 {
-    private Fundamentals.Stack<string> _stack;
+    private TestingFundamentals.Fundamentals.Stack<string> _stack;
     [SetUp]
     public void SetUp()
     {
-        _stack = new Fundamentals.Stack<string>();
+        _stack = new TestingFundamentals.Fundamentals.Stack<string>();
     }
 
     [Test]
@@ -37,7 +37,7 @@ public class StackTests
         _stack.Push("1");
         _stack.Push("2");
         _stack.Push("3");
-        
+
         var response = _stack.Pop();
 
         Assert.That(response, Is.EqualTo("3"));

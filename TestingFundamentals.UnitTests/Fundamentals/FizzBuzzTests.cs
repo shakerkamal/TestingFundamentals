@@ -1,6 +1,6 @@
 using TestingFundamentals.Fundamentals;
 
-namespace TestingFundamentals.UnitTests;
+namespace TestingFundamentals.UnitTests.Fundamentals;
 
 [TestFixture]
 public class FizzBuzzTests

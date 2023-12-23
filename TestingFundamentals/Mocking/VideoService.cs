@@ -5,16 +5,31 @@ namespace TestingFundamentals.Mocking;
 
 public class VideoService
 {
-    private readonly IFileReader fileReader;
+    //depency injection as a property
+    private readonly IFileReader _fileReader;
 
+    //dependecy injection as constructor parameter
     public VideoService(IFileReader fileReader)
     {
-        this.fileReader = fileReader;
+        _fileReader = fileReader;
     }
+
+    //inject a dependency as a method parameter
+
+    //public string ReadVideoTitle(IFileReader fileReader)
+    //{
+    //    var str = fileReader.Read("video.txt");
+    //    var video = JsonConvert.DeserializeObject<Video>(str);
+
+    //    if (video == null)
+    //        return "Error parsing the video.";
+    //    return video.Title;
+    //}
+
 
     public string ReadVideoTitle()
     {
-        var str = this.fileReader.Read("video.txt");
+        var str = _fileReader.Read("video.txt");
         var video = JsonConvert.DeserializeObject<Video>(str);
 
         if (video == null)
