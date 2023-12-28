@@ -29,14 +29,14 @@ public static class BookingHelper
 
 public interface IUnitOfWork
 {
-    IQueryable<Booking> Query<T>();
+    IQueryable<T> Query<T>();
 }
 
 public class UnitOfWork : IUnitOfWork
 {
-    public IQueryable<Booking> Query<T>()
+    public IQueryable<T> Query<T>()
     {
-        return new List<Booking>().AsQueryable();
+        return new List<T>().AsQueryable();
     }
 }
 
@@ -47,4 +47,26 @@ public class Booking
     public DateTime ArrivalDate { get; set; }
     public DateTime DepartureDate { get; set; }
     public string Reference { get; set; }
+}
+
+public class HouseKeeperStatementReport
+{
+    public int HouseKeeperId { get; set; }
+    public DateTime StatementDate { get; set; }
+    public bool HasData { get; set; }
+    public HouseKeeperStatementReport(int houseKeeperId, DateTime statementDate)
+    {
+        HouseKeeperId = houseKeeperId;
+        StatementDate = statementDate;
+    }
+
+    public void CreateDocument()
+    {
+        //creates a document on the provided paramenters
+    }
+
+    public void ExportToPdf(string fileName)
+    {
+        throw new NotImplementedException();
+    }
 }
