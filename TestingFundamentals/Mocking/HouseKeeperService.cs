@@ -24,7 +24,7 @@ public class HouseKeeperService
         var houseKeepers = _unitOfWork.Query<HouseKeeper>();
         foreach(var houseKeeper in houseKeepers)
         {
-            if (houseKeeper.Email is null)
+            if (string.IsNullOrWhiteSpace(houseKeeper.Email))
                 continue;
 
             var statementFilename = _statementGenerator.SaveStatement(houseKeeper.Oid, houseKeeper.FullName, statementDate);
